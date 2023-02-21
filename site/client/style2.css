@@ -1,0 +1,123 @@
+.main_requests {
+  margin: 0;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+#box__body {
+  display: inline-block;
+  height: 90.3%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  color: white;
+  padding: 4px 10px;
+  font-size: 2rem;
+  flex-grow: 1;
+}
+
+#box__body::-webkit-scrollbar {
+  width: 10px;
+  background-color: transparent;
+}
+
+#box__body::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border-radius: 10px;
+}
+
+#box__body::-webkit-scrollbar-track {
+  -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+.box__footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(210, 210, 210);
+  backdrop-filter: blur(5px);
+  height: fit-content;
+  padding: 15px;
+  width: -webkit-fill-available;
+  height: 60px;
+  flex-shrink: 0;
+}
+
+.send-btn {
+  color: white;
+  font-size: 25px;
+  margin: auto 5px 5px 5px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.send-btn:active {
+  scale: 0.8;
+}
+
+.request {
+  width: -webkit-fill-available;
+  min-height: 37px;
+  max-height: 82px;
+  overflow-y: auto;
+  resize: none;
+  background-color: rgb(210, 210, 210);
+  border-color: transparent;
+}
+
+.request:focus, input:focus {
+  outline: none;
+}
+
+.request::placeholder {
+  color: rgba(255, 255, 255, 0.642);
+}
+
+.request:focus::placeholder { 
+  color:transparent; 
+}
+
+.request::-webkit-scrollbar {
+  width: 2px;
+  background-color: transparent;
+}
+
+.request::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+}
+
+.request::-webkit-scrollbar-track {
+  -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+  background-color: transparent;
+}
+
+.slider-card {
+  display: inline-block;
+  vertical-align: top;
+  width: 250px;
+  margin: 45px;
+  margin-right: 35px;
+  color: black;
+  background-color: rgb(240, 240, 240);
+  border-radius: 8px;
+}
+
+#name {
+  font-size: 18px;
+  text-align: left;
+  padding-left: 20px;
+  margin-bottom: 2px;
+}
+
+#message {
+  font-size: 14px;
+  overflow-wrap: anywhere;
+  padding:  0px 20px 20px 20px;
+}
+
+
+
+

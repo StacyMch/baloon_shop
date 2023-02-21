@@ -1,0 +1,115 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    height: 100%;
+    background-color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+    font-size: 25px;
+}
+
+/* слайдер */
+/* контейнер */
+.wrapper {
+    height: 100%;
+    padding: 50px;
+}
+
+/* основные стили */
+/* Слайдер */
+/* ограничивающая оболочка */
+.slick-list {
+    overflow: hidden;
+}
+/* лента слайдов */
+.slick-track {
+    display: flex;
+    align-items: flex-start;
+}
+
+/* конкретный слайдер */
+.slider {
+    position: relative;
+    padding: 0 50px;
+    text-align: center;
+}
+.slider__item {
+    text-align: center;
+}
+.slider .slick-arrow {
+    position: absolute;
+    top: 50%;
+    margin: -30px 0 0 0;
+    z-index: 10;
+    font-size: 0;
+    border: 0;
+    width: 30px;
+    height: 60px;
+    cursor: pointer;
+}
+.slider .slick-arrow.slick-prev {
+    left: 0;
+    background: url('../img/arrow-l.png') 0 0 / 100% no-repeat;
+}
+.slider .slick-arrow.slick-next {
+    right: 0;
+    background: url('../img/arrow-r.png') 0 0 / 100% no-repeat;
+}
+.slider .slick-arrow.slick-disabled {
+    opacity: 0.2;
+}
+
+.slider-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.slider-card {
+    width: 355px;
+}
+
+.slider-card-img {
+    cursor: pointer;
+    width: 341px;
+    height: 236px;
+    margin: 0 auto;
+    background-position: center;
+    background-size: cover;
+}
+
+.slider-item1 {
+    background-image: url('../img/slider-item1.png');
+}
+
+.slider-item2 {
+    background-image: url('../img/slider-item2.png');
+}
+
+.slider-item3 {
+    background-image: url('../img/slider-item3.png');
+}
+
+/* Точки */
+.slider .slick-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.slider .slick-dots li {
+    list-style: none;
+    margin: 0 10px;
+}
+.slider .slick-dots li.slick-active button {
+    background-color: transparent;
+    border: 1px solid #959595;
+}
+.slider .slick-dots button {
+    font-size: 0;
+    padding: 3px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    border: 1px solid #000000;
+}

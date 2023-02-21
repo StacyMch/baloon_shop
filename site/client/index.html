@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+	<title>Интернет-магазин группа 1</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css"> </link>
+</head>
+<body>
+	<header class="header">
+		<div class="container">
+			<div class="navigation flex jcspb aic">
+				<div class="logo-co" onclick="renderHomePage()">ART<br><i>Colibri</i></div>
+				<div class="catalog" onclick="renderCatalog()">Каталог</div>
+				<div id="search" class="search">
+					<input pattern="[А-Яа-яЁё ]+" id="input-search-top" class="input-search" type="text" oninput="searchGoods()" placeholder="Поиск">
+					<div id="container-search">
+
+					</div>
+				</div>
+				
+				<div><a href="#" class="nav-item" onclick="renderAkc()">Акции</a></div>
+				<div><a href="#" class="nav-item" onclick="renderDelivery()">Доставка</a></div>
+				<div><a href="#" class="nav-item" onclick="renderCont()">Контакты</a></div>
+				<div><a href="#" class="nav-item" onclick="renderReviews()">Отзывы</a></div>
+				<div class="customer-icons flex aic">
+					<div class="icon log-in-icon" onclick="renderPerson()"></div>
+					<div class="icon favourite-icon"></div>
+					<div class="icon basket-icon" onclick="renderBasket()">
+						<div id="counter" class="counter hidden">0</div>
+					</div>
+				</div>
+			</div>
+			<div class="categories flex jcspb aic">
+				<div class="category-item" onclick="renderCardsInCategory(1)">Латексные шары</div>
+				<div class="category-item" onclick="renderCardsInCategory(2)">Фольгированные шары</div>
+				<div class="category-item" onclick="renderCardsInCategory(3)">Цифры</div>
+				<div class="category-item" onclick="renderCardsInCategory(4)">3D Сферы</div>
+				<div class="category-item" onclick="renderCardsInCategory(5)">Хромовые шары</div>
+
+				<div class="menu-contacts flex">
+					<!-- <div>
+						<a class="phone" href="tel:+7 495-369-56-79">+7 495-369-56-79</a>
+					</div> -->
+					<div>
+						<a class="logo telegram-logo" href="https://t.me/Elza_Izh" target="_blank"></a>
+					</div>
+					<div>
+						<a class="logo whatsapp-logo" href="https://api.whatsapp.com/send/?phone=79082535423" target="_blank"></a>
+					</div>
+					<div class="work-hours">
+						Режим работы<br><b>Круглосуточно</b>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<main id="container">
+		<!-- контейнер для отрисовки любого из шаблонов, которые занимают всю страницу -->
+
+
+		
+
+	</main>
+
+	<!-- шаблон Главной страницы -->
+	<template id="tmpl-home-page">
+		<div class="section1">
+			<div class="texth1">
+				<h1><b>Распродажа в честь</b> <br>предстоящих праздников!</h1>
+			</div>
+			<div class="flex butdiv">
+				<button class="but1" onclick="renderAkc()">
+					Все акции
+				</button>
+				<button class="but2" onclick="renderCatalog()">
+					Подробнее
+				</button>
+			</div>
+		</div>
+
+		<div class="section2">
+			<div class="flex">
+				<h1><b>Популярные категории</b></h1>
+				<button class="but3" onclick="renderPopular()">смотреть все ></button>
+			</div>
+				<div class="wrapper">
+					<div class="slider">
+						<div class="slider-cards">
+							<div class="slider-card">
+								<div class="slider-card-img slider-item1" onclick="renderCardsInCategory(1)"></div>
+							</div>
+						</div>
+						<div class="slider-cards">
+							<div class="slider-card">
+								<div class="slider-card-img slider-item2" onclick="renderCardsInCategory(2)"></div>
+							</div>
+						</div>
+						<div class="slider-cards">
+							<div class="slider-card">
+								<div class="slider-card-img slider-item3" onclick="renderCardsInCategory(3)"></div>
+							</div>
+						</div>
+						<div class="slider-cards">
+							<div class="slider-card">
+								<div class="slider-card-img slider-item4" onclick="renderCardsInCategory(4)"></div>
+							</div>
+						</div>
+						<div class="slider-cards">
+							<div class="slider-card">
+								<div class="slider-card-img slider-item5" onclick="renderCardsInCategory(5)"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</div>
+
+		<div class="section3">
+			<div class="flex">
+				<h1><b>Лидеры продаж</b></h1>
+				<button class="but3" onclick="renderLiders()">показать все ></button>
+			</div>
+			<div class="wrapper">
+				<div class="slider">
+					<div class="slider-cards">
+						<div class="slider-card">
+							<div class="slider-card-img slider-item6" onclick="renderCardsInCategory(1)"></div>
+						</div>
+					</div>
+					<div class="slider-cards">
+						<div class="slider-card">
+							<div class="slider-card-img slider-item7" onclick="renderCardsInCategory(2)"></div>
+						</div>
+					</div>
+					<div class="slider-cards">
+						<div class="slider-card">
+							<div class="slider-card-img slider-item8" onclick="renderCardsInCategory(3)"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="section4">
+			<div id="sended" class="discount-wrap flex fdc">
+				<div class="title flex">
+					Скидка 5% <br>на первый заказ
+				</div>
+				<div class="phone-and-btn flex fdc">
+					<input class="discount user-phone" id="discount" name="text" type="text" placeholder="+7 (999) 999-99-99">
+					<button class="but4 btn-order" onclick="sendTelegram()">Получить скидку</button>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<!-- Отдельный шаблон для шапки Каталога -->
+	<template id="tmpl-catalog-nav">
+		<!-- "хлебные крошки" - навигация внутри каталога -->
+		<div class="breadcrumbs-container">
+			<ul class="breadcrumbs-list">
+				<li>
+					<a href="#" onclick="renderHomePage()">Главная</a>
+				</li>
+				<li>
+					<p>Каталог</p>
+				</li>
+			</ul>
+		</div>
+		<h2>Каталог</h2>
+	</template>
+
+	<template id="tmpl-catalog">
+		<!-- В Каталоге отрисовываются КАТЕГОРИИ товаров	 -->
+			<div class="category-card">
+				<div class="category-card_img"  onclick="renderCardsInCategory(${category_id})" style="background-image: url('${category_img}');"></div>
+				<div class="category-card_title">
+					<h3 onclick="renderCardsInCategory(${category_id})">${category_title}</h3>
+				</div>
+			</div>
+    </template>
+
+	<!-- Отдельный шаблон для шапки Категории (с фильтром)-->
+	<template id="tmpl-category-nav">
+		<!-- "хлебные крошки" - навигация внутри каталога -->
+		<div class="breadcrumbs-container">
+			<ul class="breadcrumbs-list">
+				<li>
+					<a href="#" onclick="renderHomePage()">Главная</a>
+				</li>
+				<li>
+					<a href="#" onclick="renderCatalog()">Каталог</a>
+				</li>
+				<li>
+					<p>${category_title}</p>
+				</li>
+			</ul>
+		</div>
+		<h2>${category_title}</h2>
+		<div class="filter aic">
+			<div class="filter_price aic">
+				<p>Цена</p>
+				<input id="price-from" type="number" placeholder="от">
+				<input id="price-to" type="number" placeholder="до">
+				<button class="price-btn" onclick="filterByPrice()">Найти</button>
+			</div>
+			<div class="filter_with-discount aic">
+				<p>Товары со скидкой</p>
+				<input id="checkbox-sale" type="checkbox" onclick="filterWithDiscount()">
+			</div>
+			<div class="filter_sort-by aic">
+				<p>Сортировать:</p>
+				<select name="sort-type" id="sort-by" onchange="sortBySelect()">
+					<option value="default">По умолчанию</option>
+					<option value="price-up">По возрастанию цены</option>
+					<option value="price-down">По убыванию цены</option>
+					<!-- <option value="popular">По популярности</option> -->
+					<!-- <option value="rating">По рейтингу</option> -->
+				</select>
+			</div>
+		</div>
+	</template>
+
+	<template id="tmpl-category">
+		<!-- В Категории отрисовываются ТОВАРЫ ВНУТРИ ВЫБРАННОЙ КАТЕГОРИИ	 -->
+
+		<!-- Базовый фильтр товаров -->
+			<div class="card-in-category">
+				<div class="card-in-category_img" style="background-image: url('${goods_img}');">
+					<button class="btn-add-to-basket" onclick="addToBasket(${bsk_goods_id},'${goods_title}')">Добавить в корзину</button>
+				</div>
+				<div class="info-under-img">
+					<div class="price-line">
+						<div class="actual-price">${price} р.</div>
+						<div class="crossed-out-price">${crssd} р.</div>
+						<div class="sale-num">-${sale}%</div>
+					</div>
+					<h4 onclick="renderCard(${category_id},${goods_id})">${goods_title}</h4>
+					<!-- рейтинг из 5 звезд -->
+					<div class="rating flex aife">
+						<div class="rating-body">
+							<!-- полоса, которая заполняется в % соотношении в зависимости от оценки -->
+							<div class="rating-active"></div>
+							<div class="rating-items flex">
+								<input type="radio" class="rating-item" value="1" name="rating">
+								<input type="radio" class="rating-item" value="2" name="rating">
+								<input type="radio" class="rating-item" value="3" name="rating">
+								<input type="radio" class="rating-item" value="4" name="rating">
+								<input type="radio" class="rating-item" value="5" name="rating">
+							</div>
+						</div>
+						<div class="rating-value hidden">0</div>
+					</div>
+					
+				</div>
+			</div>
+	</template>
+
+    <template id="tmpl-card">
+		<!-- В Карточке отрисовывается ОДИН КОНКРЕТНЫЙ ТОВАР крупным планом	 -->
+		<div class="card">
+			<!-- "хлебные крошки" - навигация внутри каталога -->
+			<div class="breadcrumbs-container">
+				<ul class="breadcrumbs-list">
+					<li>
+						<a href="#" onclick="renderHomePage()">Главная</a>
+					</li>
+					<li>
+						<a href="#" onclick="renderCatalog()">Каталог</a>
+					</li>
+					<li>
+						<a href="#" onclick="renderCardsInCategory(${category_id})">${category_title}</a>
+					</li>
+					<li>
+						<p>${goods_title}</p>
+					</li>
+				</ul>
+			</div>
+			<!-- рейтинг из 5 звезд -->
+			<div class="rating flex aife">
+				<div class="rating-body">
+					<!-- полоса, которая заполняется в % соотношении в зависимости от оценки -->
+					<div class="rating-active"></div>
+					<div class="rating-items flex">
+						<input type="radio" class="rating-item" value="1" name="rating">
+						<input type="radio" class="rating-item" value="2" name="rating">
+						<input type="radio" class="rating-item" value="3" name="rating">
+						<input type="radio" class="rating-item" value="4" name="rating">
+						<input type="radio" class="rating-item" value="5" name="rating">
+					</div>
+				</div>
+				<div class="rating-value hidden">0</div>
+			</div>
+			<div class="goods-title">
+				<h3>${goods_title}</h3>
+			</div>
+
+			<div class="horizontal-wrap">
+				<div class="goods-img" style="background-image: url('${goods_img_big}');">
+				</div>
+				<div class="goods-info">
+					<div class="price-line">
+						<div class="actual-price huge">${price} р.</div>
+						<div class="crossed-out-price bigger">${crssd} р.</div>
+						<div class="sale-num bigger">-${sale}%</div>
+					</div>
+					<button class="btn-to-basket" onclick="addToBasket(${bsk_goods_id},'${goods_title}')">В корзину</button>
+					<div class="dotted-line"></div>
+					<div class="goods-description">
+						<p><b>Состав:</b></p>
+						<p>${goods_description}</p>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+    </template>
+
+	<template id="tmpl-basket">
+		<!-- "хлебные крошки" - навигация внутри каталога -->
+		<div class="basket horizontal-wrap jcspb">
+			<div class="chosen-goods_container">
+				<div class="breadcrumbs-list jcspb">
+					<div class="breadcrumbs left">
+						<a href="#" onclick="renderHomePage()">Главная</a>
+						<p>Корзина</p>
+					</div>
+					<div class="breadcrumbs right">
+							<a class="back-to-store" href="#" onclick="renderCatalog()">Вернуться в магазин</a>
+					</div>
+				</div>
+				<h2>Корзина</h2>
+				<div id="bsk-goods-container" class="chosen-goods-cards">
+					<!-- Контейнер для карточек товаров, добавленных в корзину -->
+			
+				</div>
+			</div>
+			
+			<div id="order-container" class="order-frame_container">
+				<h4>Детали заказа</h4>
+				<div class="order-details">
+					<div class="quantity flex wrap jcspb aibl">
+						<p>Количество: </p>
+						<span id="quantity-in-order">0</span>
+					</div>
+					<div class="sum flex wrap jcspb aibl">
+						<p>Сумма: </p>
+						<span id="sum">0</span>
+					</div>
+				</div>
+				<div class="order-form">
+					<input class="user-phone" id="userPhone" type="tel" placeholder="+7 (999) 999-99-99">
+					<div id="btn-order" class="btn-order">Заказать</div>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<!-- Шаблон для карточек товаров, добавленных в корзину -->
+	<template id="tmpl_goods-in-basket">
+		<div class="chosen-goods flex jcs">
+			<div class="bsk-goods-img" style="background-image: url('${goods_img_mini}');"></div>
+			<div class="bsk-goods-info flex vertical-flex">
+				<div class="bsk-goods-title">
+					<p>${bsk_goods_title}</p>
+				</div>
+				<div class="qnt flex aic">
+					<button class="less-goods" onclick="lessGoods(${bsk_goods_id})">–</button>
+					<span class="quantity-in-card">${N}</span>
+					<button class="more-goods" onclick="moreGoods(${bsk_goods_id})">&#43;</button>
+				</div>
+			</div>
+			<div class="price-line fdc">
+				<div class="actual-price">${price} р.</div>
+				<div class="crossed-out-price">${crssd} р.</div>
+				<div class="sale-num hidden">-${sale}%</div>
+			</div>
+			<div class="delete-goods" onclick="delFromBasket('${goods_name}')">&#10006;</div>
+		</div>
+		<div class="separating-line"></div>
+	</template>
+
+	<template id="tmpl-person">
+		<div id="tmpl-request">
+			<h1 class="text-request">Регистрация</h1>
+		<div class="form">
+				<div class="form-text">Имя<span>*</span></div><br>
+				<input class="form-area" id="name" type="text" name="name" autocomplete="off" required>
+				<div class="form-text">E-mail<span>*</span></div><br>
+				<input class="form-area" id="e-mail" type="e-mail" name="e-mail" autocomplete="off" required>
+				<div class="form-text">Логин</div><br>
+				<input class="form-area" id="login" type="text" name="login" autocomplete="off" required><br>
+				<div class="form-text">Пароль</div><br>
+				<input class="form-area" id="password" type="text" name="password" autocomplete="off" required><br>
+				<button class="form-submit" type="submit" onclick="send()">Зарегистрироваться</button>
+			</div>
+		</div>
+	</template>
+
+	<template id="tmpl-person1">
+		<div id="tmpl-request">
+			<h1 class="text-request">Личный кабинет</h1>
+			<div class="form">
+				<div class="form-text">Логин</div><br>
+				<input class="form-area" id="login" type="text" name="login" autocomplete="off" required><br>
+				<div class="form-text">Пароль</div><br>
+				<input class="form-area" id="password" type="text" name="password" autocomplete="off" required><br>
+				<button class="form-submit" type="submit" onclick="entrance()">Войти</button>
+			</div>
+			<button class="form-reg" type="submit" onclick="registration()">Зарегистрироваться</button>
+		</div>
+	</template>
+
+	<template id="personalaccount">
+		<h1 class="">Личный кабинет</h1>
+		<div class="flex jcspa personal">
+			<div class="pers">
+				<button id="lk" class="butpers" >Личные данные</button>
+				<button id="zak" class="butpers" onclick="renderOrders()">Заказы</button>
+				<button class="butpers" onclick="deleteAccount()">Удалить аккаунт</button>
+			</div>
+			<div>
+				<div class="form-text1">Имя</div>
+				<div class="flex">
+					<input class="form-area1"  type="text"  autocomplete="off" required>
+					<img class="imgg" src="img/84380.png">
+				</div>
+				<div class="form-text1">Телефон</div>
+				<div class="flex">
+					<input class="form-area1"  type="text"  autocomplete="off" required>
+					<img class="imgg" src="img/84380.png">
+				</div>
+				<div class="form-text1">E-mail</div>
+				<div class="flex">
+					<input class="form-area1" id="e-mail" type="e-mail" name="e-mail" autocomplete="off" required>
+					<img class="imgg" src="img/84380.png">
+				</div>
+				<div class="form-text1">Адрес</div>
+				<div class="flex">
+					<input class="form-area1"  type="text"  autocomplete="off" required>
+					<img class="imgg" src="img/84380.png">
+				</div>
+			</div>
+			<div class="">
+				<div class="form-text1">Логин</div>
+				<div class="flex">
+					<input class="form-area1" id="login" type="text" name="login" autocomplete="off" required>
+					<img class="imgg" src="img/84380.png">
+				</div>
+				<div class="form-text1">Пароль</div>
+				<div class="flex">
+					<input class="form-area1" id="password" type="text" name="password" autocomplete="off" required>
+					<img class="imgg" src="img/84380.png">
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="personalorders">
+		<h1 class="">Личный кабинет</h1>
+		<div class="flex  personal">
+			<div class="pers">
+				<button id="lk" class="butpers" onclick="personalaccount()">Личные данные</button>
+				<button id="zak" class="butpers" onclick="renderOrders()">Заказы</button>
+				<button class="butpers" onclick="deleteAccount()">Удалить аккаунт</button>
+			</div>
+			<div class="order0">
+				У вас пока нет заказов.
+				<br>
+				Перейти в <a class="a1" onclick="renderCatalog()"><b>Каталог</b></a>
+			</div>
+			<div class="orders">
+
+			</div>
+		</div>
+	</template>
+
+    <!--создаем блок для "акции"-->
+    <template id="akc">
+        <div class="main-container">
+            <h2>Акции</h2>
+			<!-- "хлебные крошки" - навигация внутри каталога -->
+			<div class="breadcrumbs-container">
+				<ul class="breadcrumbs-list">
+					<li>
+						<a href="#" onclick="renderHomePage()">Главная</a>
+					</li>
+					<li>
+						<p>Акции</p>
+					</li>
+				</ul>
+			</div>
+			<div class="filter aic">
+				<div class="filter_price aic">
+					<p>Цена</p>
+					<input id="price-from" type="number" placeholder="от">
+					<input id="price-to" type="number" placeholder="до">
+					<button class="price-btn" onclick="filterByPrice()">Найти</button>
+				</div>
+				<div class="filter_sort-by aic">
+					<p>Сортировать:</p>
+					<select name="sort-type" id="sort-by" onclick="sortBySelect()">
+						<option value="default">По умолчанию</option>
+						<option value="price-up">По возрастанию цены</option>
+						<option value="price-down">По убыванию цены</option>
+						<!-- <option value="popular">По популярности</option> -->
+						<!-- <option value="rating">По рейтингу</option> -->
+					</select>
+				</div>
+			</div>
+        </div>
+    </template>
+
+	<!--создаем блок для "доставка"-->
+	<template id="delivery">
+		<div class="main-container">
+			<h2>Доставка</h2>
+			<!-- "хлебные крошки" - навигация внутри каталога -->
+			<div class="breadcrumbs-container">
+				<ul class="breadcrumbs-list">
+					<li>
+						<a href="#" onclick="renderHomePage()">Главная</a>
+					</li>
+					<li>
+						<p>Доставка</p>
+					</li>
+				</ul>
+			</div>
+			<div class="conteiners flex">
+				Круглосуточная доставка по Москве и Московской области.<br>
+
+				Прием заказов по телефону с 8:00 до 22:00 без выходных.<br>
+
+				Уважаемые покупатели учитывайте пробки в часы пик. Просьба заказывать заранее.<br>
+
+				<br>
+
+				Стоимость доставки в пределах МКАД составляет 350р. в интервал 3 часа (например с 15:00 до 18:00)<br>
+
+				Ночная доставка с 23:00 до 07:00 составляет 700р.<br>
+
+				Доставка точно ко времени +\- 15мин 500р.<br>
+
+				Срочная доставка в режиме такси. Вы вызываете нам такси. Согласование обязательно!!!<br>
+
+				Стоимость доставки за пределы МКАД рассчитывается индивидуально.<br>
+			</div>
+		</div>
+	</template>
+
+	<!--создаем блок для "контакты"-->
+    <template id="contacts">
+        <div class="main-container">
+            <h2>Контакты</h2>
+			<!-- "хлебные крошки" - навигация внутри каталога -->
+			<div class="breadcrumbs-container">
+				<ul class="breadcrumbs-list">
+					<li>
+						<a href="#" onclick="renderHomePage()">Главная</a>
+					</li>
+					<li>
+						<p>Контакты</p>
+					</li>
+				</ul>
+			</div>
+			<div class="conteiners">
+				<div class="flex" style="justify-content: space-around; margin-bottom: 15px; flex-wrap: wrap">
+					<div>
+						<div class="flex">
+							<h3 style="padding-left: 10px; padding-top: 15px">Телефон</h3>
+						</div>
+						<div>
+							<p> +7-999-999-99-99</p><br>
+							<p> +7-999-549-52-99</p>
+						</div>
+					</div>
+					<div>
+						<div class="flex">
+							<h3 style="padding-left: 10px; padding-top: 15px">Телефон</h3>
+						</div>
+						<div>
+							<p> +7-999-777-77-77</p><br>
+							<p> +7-999-526-64-78</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="wrapperForMaps">
+					<iframe src="https://yandex.ru/map-widget/v1/?indoorLevel=1&amp;ll=73.355923%2C54.993402&amp;mode=whatshere&amp;whatshere%5Bpoint%5D=73.355301%2C54.993222&amp;whatshere%5Bzoom%5D=17&amp;z=17" frameborder="1" allowfullscreen="true" "=""></iframe>
+				</div>
+			</div>
+        </div>
+    </template>
+
+	<!--создаем блок для "отзывы"-->
+    <template id="reviews">
+        <div class="main-container">
+            <h2>Отзывы</h2>
+			<!-- "хлебные крошки" - навигация внутри каталога -->
+			<div class="breadcrumbs-container">
+				<ul class="breadcrumbs-list">
+					<li>
+						<a href="#" onclick="renderHomePage()">Главная</a>
+					</li>
+					<li>
+						<p>Отзывы</p>
+					</li>
+				</ul>
+			</div>
+			<div class="conteiners flex">
+				<!-- содержимое -->
+			</div>
+        </div>
+    </template>
+
+
+	<!-- шаблон результатов поиска  -->
+	<template id="search-tmpl">
+		<div class="box-search" onclick="renderCard(${category_id},${goods_id})">
+			<div >
+				<img class="photo-search" src="${photo_search}" alt="">
+			</div>
+			<div class="box-search2" >
+				<div class="text1-search">
+					${name_search}
+				</div>
+				<div class="text2-search" >
+					${category_search}
+				</div>
+				<div class="text3-search">
+					${price_search} ₽
+				</div>
+			</div>
+		</div>
+	</template>
+
+
+	<template id="tmpl_reviews">
+		<div class="main_reviews">
+
+			<div id="box__body">
+				
+			</div>
+		
+			<div class="box__footer">
+				<textarea class="review" required class="send" id="msg" type="text" placeholder="Ваш отзыв" required></textarea>
+		
+				<div class="send-btn" onclick="sendReview()">&#10148;</div>
+			</div>
+		</div>
+	</template>
+	
+
+	<template id="tmpl_card_review">
+		<div class="slider-card">
+			<div id="name">
+				${name}
+			</div>
+			<div id="message">
+				${message}
+			</div>
+		</div>
+	</template>
+
+
+	<footer class="flex jcspa">
+		<div>
+			<h2>Контакты</h2>
+			<h1>+ 7 999 999 99 99</h1><br>
+			<div class="flex jcspa">
+				<div>
+					<a class="logo telegram-logo" href="https://t.me/Elza_Izh" target="_blank"></a>
+					<p>Telegram</p>
+				</div>
+				<div>
+					<a class="logo whatsapp-logo" href="https://api.whatsapp.com/send/?phone=79082535423" target="_blank"></a>
+					<p>WhatsApp</p>
+				</div>
+			</div>
+		</div>
+
+		<div>
+			<h2>Адрес</h2>
+			<h1>Звездный берег, д. 77</h1><br>
+			<div>
+				Режим работы<br><b>Круглосуточно</b>
+			</div>
+		</div>
+	</footer>
+
+
+
+	
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="slick-slider/js/slick.min.js"></script>
+	<!-- <script src="slick-slider/js/main.js"></script> -->
+	<script src="Store/main.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
