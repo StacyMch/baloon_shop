@@ -14,7 +14,7 @@ final class User extends AbstractClasses\Unit
         
         error_reporting(0);
         
-         //заходим в базу смотрим сколько у нас юзеров с таким паролем и логинов
+         //заходим в базу смотрим сколько у нас юзеров с таким паролем и логином
          $pdo = \Connection::getConnection();
 
          $result = $pdo->query(" SELECT COUNT(*) as num FROM " . static::TABLE . " WHERE user_hash =  '" . $_POST['token'] . "'");
@@ -108,7 +108,7 @@ final class User extends AbstractClasses\Unit
     
     }
 
-    // final - значит м етод нельзя переопределить в наследниках 
+    // final - значит метод нельзя переопределить в наследниках 
     final public static function logIn() : array
     {
 

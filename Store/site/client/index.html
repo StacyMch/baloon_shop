@@ -48,7 +48,7 @@
 				</div>
 				
 				<div class="customer-icons flex aic">
-					<div id="log-in" class="icon log-in-icon" onclick="renderPerson()">
+					<div id="log-in" class="icon log-in-icon" onclick="authorization()">
 						<div class="pers box-shadow hidden">
 							<button id="lk" class="butpers" onclick="renderInfo()">Личные данные</button>
 							<button id="zak" class="butpers" onclick="renderOrders()">Заказы</button>
@@ -116,7 +116,7 @@
 				<input class="form-area" id="password" type="password" name="password" autocomplete="off" placeholder="Введите пароль" required>
 				<div class="form-text">Подтвердите пароль</div>
 				<input class="form-area" id="password2" type="password" name="password2" autocomplete="off" placeholder="Введите пароль еще раз" required>
-				<button class="btn form-submit" type="submit" onclick="send()">Зарегистрироваться</button>
+				<button class="btn form-submit" type="submit" onclick="signUp()">Зарегистрироваться</button>
 			</div>
 		</div>
 	</div>
@@ -508,13 +508,13 @@
 		<div class="separating-line"></div>
 	</template>
 
-	<template id="tmpl-person">
+	<!-- <template id="tmpl-person">
 		<div id="tmpl-request" class="request-background">
 			<div class="request-container request-container-signin">
 				<div class="request-header">
 					<img src="http://localhost/client/magaz/assets/images/logo2.png" alt="logo">
 				</div>
-				<!-- <h1 class="text-request">Регистрация</h1> -->
+				<h1 class="text-request">Регистрация</h1>
 				<div class="form">
 					<div class="request-title">
 						<h4>Зарегистрировать аккаунт</h4>
@@ -534,15 +534,15 @@
 				</div>
 			</div>
 		</div>
-	</template>
+	</template> -->
 
-	<template id="tmpl-person1">
+	<!-- <template id="tmpl-person1">
 		<div id="tmpl-request" class="request-background">
 			<div class="request-container">
 				<div class="request-header">
 					<img src="http://localhost/client/magaz/assets/images/logo2.png" alt="logo">
 				</div>
-				<!-- <h1 class="text-request">Личный кабинет</h1> -->
+				<h1 class="text-request">Личный кабинет</h1>
 				<div class="form">
 					<div class="request-title">
 						<h4>Войти в личный кабинет</h4>
@@ -557,7 +557,7 @@
 				<button class="form-reg" type="submit" onclick="registration()">Зарегистрироваться</button>
 			</div>
 		</div>
-	</template>
+	</template> -->
 
 	<template id="tmpl-personalinfo">
 		<div class="breadcrumbs-container">

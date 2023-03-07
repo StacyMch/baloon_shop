@@ -29,8 +29,8 @@
     let templateGoodsInBasket = document.getElementById('tmpl_goods-in-basket').innerHTML;
 
     //получем данные шаблона личного кабинета
-    let templatePerson1 = document.getElementById('tmpl-person1').innerHTML;
-    let templatePerson = document.getElementById('tmpl-person').innerHTML;
+    //let templatePerson1 = document.getElementById('tmpl-person1').innerHTML;
+    //let templatePerson = document.getElementById('tmpl-person').innerHTML;
 
     //получем данные шаблона отзывов
     let templateReviews = document.getElementById('tmpl_reviews').innerHTML;
@@ -217,27 +217,88 @@
     //вызываем функцию при загрузке страницы
     renderHomePage();
 
-    //если юзер залогинен, добавляем иконке ЛК свое меню по клику
+    //если юзер залогинен, добавляем иконке ЛК свое меню, появляющееся и скрывающееся по клику
     function persAccountSubmenuCheck() {
         if (document.querySelector('.logged-in-icon')) {
-            console.log(document.querySelector('.logged-in-icon'));
-            console.log(document.querySelector('.logged-in-icon').classList);
+            //console.log(document.querySelector('.logged-in-icon'));
+            //console.log(document.querySelector('.logged-in-icon').classList);
             document.getElementById('log-in').setAttribute('onClick', 'showOptions()');
             
         } else {
-            document.getElementById('log-in').setAttribute('onClick', 'renderPerson()');
+            document.getElementById('log-in').setAttribute('onClick', 'authorization()');
             document.querySelector('.pers').classList.add('hidden');
         }
     }
 
-    //показ/скрытие подменю иконки ЛК
+    //показ/скрытие нижнего меню под иконкой ЛК
     function showOptions() {
         document.querySelector('.pers').classList.toggle('hidden');
-    };
+    }
 
+    //функция проверки токена
+    function tokenChecked() {
+
+        if (hash != null) {
+
+            let hash = localStorage.getItem('token');
+            console.log(hash);
+
+            let data = "token=" + encodeURIComponent(hash);
+
+            // создаём объект, который умеет отправлять запросы
+            let requestObj = new XMLHttpRequest();
+
+            requestObj.onreadystatechange = function() {
+                if (requestObj.readyState == XMLHttpRequest.DONE) {
+                    let date = JSON.parse(requestObj.responseText);
+
+                    if (date['success'] == true) {
+
+                        console.log('true');
+
+                        //если да, то отрисовываем дальше страницу кабинета
+                        //personalaccount();
+                        // renderInfo();
+
+                        // document.getElementById('pers_name').value = date['name'];
+                        // document.getElementById('pers_mail').value = date['e-mail'];
+                        // document.getElementById('pers_phone').value = date['phone'];
+                        // document.getElementById('pers_adress').value = date['adress'];
+
+                    }
+
+                }
+            }
+
+            //собираем ссылку для запроса
+            let link = 'http://localhost/?check';
+            
+            //конфигурируем объект
+            requestObj.open('POST', link, false);
+                                    
+            requestObj.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                                    
+            // отправляем запрос
+            requestObj.send(data);
+
+            console.log('token has been checked');
+
+        } else {
+
+            console.log('something is wrong with hash');
+            console.log('hash: ' + hash);
+
+            return false;
+        }
+
+        
+    }
 
     //функция отрисовки личного кабинета
-    function renderPerson() {
+    // function renderPerson() {
+
+    //функция вызова формы авторизации (логина)
+    function authorization() {
 
         let hash = localStorage.getItem('token');
 
@@ -260,51 +321,54 @@
             //     }  
             // })
     
-        } else if (hash != null) {
-            console.log(hash);
-
-        let data = "token=" + encodeURIComponent(hash);
-
-        // создаём объкт который умеет отправлять запросы
-        let requestObj = new XMLHttpRequest();
-
-        requestObj.onreadystatechange = function() {
-            if (requestObj.readyState == XMLHttpRequest.DONE) {
-                let date = JSON.parse(requestObj.responseText);
-
-                if (date['success'] == true) {
-
-                    //если да, то отрисовываем дальше страницу кабинета
-                    //personalaccount();
-                    renderInfo();
-
-                    document.getElementById('pers_name').value = date['name'];
-                    document.getElementById('pers_mail').value = date['e-mail'];
-                    document.getElementById('pers_phone').value = date['phone'];
-                    document.getElementById('pers_adress').value = date['adress'];
-
-                }
-
-             }
-        }
-
-        //собираем ссылку для запроса
-        let link = 'http://localhost/?check';
-        
-        //конфигурируем объект
-        requestObj.open('POST', link, false);
-                                
-        requestObj.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                                
-        // отправляем запрос
-        requestObj.send(data);
-
-        console.log('hash is not null, request sent');
-
         } 
+        
+        // else if (hash != null) {
+        //     console.log(hash);
+
+        // let data = "token=" + encodeURIComponent(hash);
+
+        // // создаём объкт который умеет отправлять запросы
+        // let requestObj = new XMLHttpRequest();
+
+        // requestObj.onreadystatechange = function() {
+        //     if (requestObj.readyState == XMLHttpRequest.DONE) {
+        //         let date = JSON.parse(requestObj.responseText);
+
+        //         if (date['success'] == true) {
+
+        //             //если да, то отрисовываем дальше страницу кабинета
+        //             //personalaccount();
+        //             renderInfo();
+
+        //             document.getElementById('pers_name').value = date['name'];
+        //             document.getElementById('pers_mail').value = date['e-mail'];
+        //             document.getElementById('pers_phone').value = date['phone'];
+        //             document.getElementById('pers_adress').value = date['adress'];
+
+        //         }
+
+        //      }
+        // }
+
+        // //собираем ссылку для запроса
+        // let link = 'http://localhost/?check';
+        
+        // //конфигурируем объект
+        // requestObj.open('POST', link, false);
+                                
+        // requestObj.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                                
+        // // отправляем запрос
+        // requestObj.send(data);
+
+        // console.log('hash is not null, request sent');
+
+        //} 
 
 }
 
+    //функция вызова формы регистрации
     function registration() {
         //очищаем страницу
         // clearPage();
@@ -315,7 +379,6 @@
         document.getElementById('tmpl-request2').classList.add('hidden');
 
         //делаем форму регистрации видимой
-        document.getElementById('screen-dimmer').style.opacity = '1';
         document.getElementById('tmpl-request').classList.remove('hidden');
     }
 
@@ -355,6 +418,7 @@
 
     }
 
+    //функция захода в ЛК после авторизации
     function entrance() {
 
         let login = document.getElementById('login_entrance').value;
@@ -371,6 +435,7 @@
                 requestObj.onreadystatechange = function() {
                     if (requestObj.readyState == XMLHttpRequest.DONE) {
                         let date = JSON.parse(requestObj.responseText);
+                        console.log(date);
 
                         if (date['success'] == false) {
 
@@ -380,38 +445,61 @@
             
                         if (date['success'] == true) {
 
-                        let token = date['token'];
+                            let token = date['token'];
 
-                        localStorage.setItem('token', token);
+                            localStorage.setItem('token', token);
+                            console.log(token);
 
-                        //console.log(login);
-                        //кладем логин в хранилище
-                        //localStorage.setItem('login', login);
-            
-                        //если да, то отрисовываем дальше страницу кабинета
-                        //сначала скрываем форму loginа и полупрозрачную подложку
-                        document.getElementById('screen-dimmer').style.opacity = '0';
-                        document.getElementById('tmpl-request2').classList.add('hidden');
-            
-                        //document.getElementById('lk').classList.add('butpers1');
+                            tokenChecked();
 
-                        //меняем иконку в хедере
-                        document.getElementById('log-in').classList.remove('log-in-icon');
-                        document.getElementById('log-in').classList.add('logged-in-icon');
+                            //console.log(login);
+                            //кладем логин в хранилище
+                            //localStorage.setItem('login', login);
+                
+                            //если да, то отрисовываем дальше страницу кабинета
+                            //сначала скрываем форму loginа и полупрозрачную подложку
+                            document.getElementById('screen-dimmer').style.opacity = '0';
+                            document.getElementById('tmpl-request2').classList.add('hidden');
+                
+                            //document.getElementById('lk').classList.add('butpers1');
 
-                        //меняем онклик у иконки входа в ЛК
-                        persAccountSubmenuCheck();
+                            //меняем иконку в хедере
+                            document.getElementById('log-in').classList.remove('log-in-icon');
+                            document.getElementById('log-in').classList.add('logged-in-icon');
 
-                        //очищаем страницу
-                        clearPage();
+                            //меняем онклик у иконки входа в ЛК
+                            persAccountSubmenuCheck();
 
-                        renderInfo();
+                            // document.getElementById('pers_name').value = date['name'];
+                            // document.getElementById('pers_mail').value = date['e-mail'];
+                            // document.getElementById('pers_phone').value = date['phone'];
+                            // document.getElementById('pers_adress').value = date['adress'];
 
-                        document.getElementById('pers_name').value = date['name'];
-                        document.getElementById('pers_mail').value = date['e-mail'];
-                        document.getElementById('pers_phone').value = date['phone'];
-                        document.getElementById('pers_adress').value = date['adress'];
+                            let persInfoArr = {};
 
+                            persInfoArr['name'] = date['name'];
+                            persInfoArr['e-mail'] = date['e-mail'];
+
+                            if (date['phone']) {
+                                persInfoArr['phone'] = date['phone'];
+                            } else {
+                                persInfoArr['phone'] = '';
+                            }
+
+                            if (date['adress']) {
+                                persInfoArr['adress'] = date['adress'];
+                            } else {
+                                persInfoArr['adress'] = '';
+                            }
+
+                            console.log(persInfoArr);
+
+                            localStorage.setItem('personal_info', JSON.stringify(persInfoArr));
+
+                            //очищаем страницу
+                            clearPage();
+
+                            renderInfo();
                         }
                     }
                 }
@@ -1793,18 +1881,6 @@
             //чистим хранилище
             localStorage.removeItem('basket');
             localStorage.removeItem('total_quantity');
-            // if (localStorage.getItem('favourites')) {
-            //     let faves = localStorage.getItem('favourites');
-            //     let token = localStorage.getItem('token');
-            //     let login = localStorage.getItem('login');
-            //     localStorage.clear();
-            //     localStorage.setItem('favourites', faves);
-            //     localStorage.setItem('token', token);
-            //     localStorage.setItem('login', login);
-            // } else {
-                // localStorage.clear();
-            //}
-
 
             //скрываем счетчик с нулем на иконке Корзины
             document.getElementById('counter').classList.add('hidden');
@@ -2174,7 +2250,8 @@
         return xhr.responseText;
     }
 
-    function send() {
+    //функция захода в ЛК после регистрации
+    function signUp() {
 
         let name = document.getElementById('name').value;
         let e_mail = document.getElementById('e-mail').value;
@@ -2202,7 +2279,7 @@
 
                         if (date["success"]) {
 
-                            console.log('success');
+                            //console.log('success');
 
                             //скрываем форму регистрации и полупрозрачную подложку
                             document.getElementById('screen-dimmer').style.opacity = '0';
@@ -2226,10 +2303,10 @@
                             persInfoArr['name'] = name;
                             persInfoArr['e-mail'] = e_mail;
 
-                            console.log(persInfoArr);
+                            //console.log(persInfoArr);
 
                             localStorage.setItem('personal_info', JSON.stringify(persInfoArr));
-                            console.log(localStorage.getItem('personal_info'));
+                            //console.log(localStorage.getItem('personal_info'));
 
                             //очищаем страницу
                             clearPage();
