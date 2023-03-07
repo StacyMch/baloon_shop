@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отзывы</title>
+    <link rel="stylesheet" href="style2.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="main.js"></script>
+
+</head>
+<body>
+
+<div class="main_requests">
+
+    <div id="box__body">
+        
+    </div>
+
+    <div class="box__footer">
+        <textarea class="request" required class="send" id="msg" type="text" placeholder="Ваш отзыв" required></textarea>
+
+        <div class="send-btn" onclick="sendRequest()">&#10148;</div>
+    </div>
+</div>
+
+
+
+    <template id="tmpl_card">
+            <div class="slider-card">
+                <div id="name">
+                    ${name}
+                </div>
+                <div id="message">
+                    ${message}
+                </div>
+            </div>
+    </template>
+
+</body>
+</html>
+
