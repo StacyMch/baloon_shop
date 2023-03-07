@@ -4,7 +4,7 @@
 header('Access-Control-Allow-Origin: *');
 
 $host = 'mysql';
-$db   = 'inordic';
+$db   = 'baloons';
 $user = 'root';
 $pass = 'test123';
 $charset = 'utf8';

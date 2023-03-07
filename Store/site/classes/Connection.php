@@ -13,7 +13,7 @@ class Connection
 
         //получить ключ для соединения с БД
         $host = 'mysql';
-        $db   = 'inordic';
+        $db   = 'baloons';
         $user = 'root';
         $pass = 'test123';
         $charset = 'utf8';

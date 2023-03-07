@@ -25,7 +25,7 @@ ALTER TABLE `users`
 define( 'DB_HOST', 'mysql');
 define( 'DB_USER', 'root');
 define( 'DB_PASS', 'test123');
-define( 'DB_NAME', 'inordic');
+define( 'DB_NAME', 'baloons');
 
 $db = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME );
 
