@@ -240,8 +240,6 @@
         
         let hash = localStorage.getItem('token');
 
-        let hash = localStorage.getItem('token');
-
         if (hash != null) {
 
             console.log(hash);
