@@ -238,9 +238,10 @@
     //функция проверки токена
     function tokenChecked() {
 
+        let hash = localStorage.getItem('token');
+
         if (hash != null) {
 
-            let hash = localStorage.getItem('token');
             console.log(hash);
 
             let data = "token=" + encodeURIComponent(hash);
@@ -532,9 +533,12 @@
         //возвращаем Главную страницу
         renderHomePage();
         
-        //делаем форму loginа невидимой
+        //делаем форму loginа невидимой НЕ РАБОТАЕТ
         document.getElementById('screen-dimmer').style.opacity = '0';
         document.getElementById('tmpl-request2').classList.add('hidden');
+
+        console.log(document.getElementById('screen-dimmer').style.opacity);
+        console.log(document.getElementById('tmpl-request2').classList);
 
     }
 
@@ -576,10 +580,13 @@
 
     function select_phone() {
 
+        let hash = localStorage.getItem('token');
+
         let phone = document.getElementById('pers_phone').value;
 
         //1. записать в бд те данные, которые пользователь записал в первый раз или изменил адрес и телефон
         let data = "phone=" + encodeURIComponent(phone) + "&token=" + encodeURIComponent(hash);
+        console.log(phone + ' ' + hash);
     
             // создаём объкт который умеет отправлять запросы
             let requestObj = new XMLHttpRequest();
@@ -613,6 +620,8 @@
     }
 
     function select_adress() {
+       
+        let hash = localStorage.getItem('token');
 
         let adress = document.getElementById('pers_adress').value;
 
@@ -2250,7 +2259,7 @@
         return xhr.responseText;
     }
 
-    //функция захода в ЛК после регистрации
+    //функция регистрации + перенаправления на форму авторизации
     function signUp() {
 
         let name = document.getElementById('name').value;
@@ -2285,15 +2294,18 @@
                             document.getElementById('screen-dimmer').style.opacity = '0';
                             document.getElementById('tmpl-request').classList.add('hidden');
 
-                            //меняем иконку в хедере
-                            document.getElementById('log-in').classList.remove('log-in-icon');
-                            document.getElementById('log-in').classList.add('logged-in-icon');
+                            //открываем форму авторизации
+                            document.getElementById('tmpl-request2').classList.remove('hidden');
+
+                            // //меняем иконку в хедере
+                            // document.getElementById('log-in').classList.remove('log-in-icon');
+                            // document.getElementById('log-in').classList.add('logged-in-icon');
         
-                            //main.innerHTML = templatePerson1;
+                            // //main.innerHTML = templatePerson1;
                             
-                            //personalaccount();
-                            //меняем онклик у иконки входа в ЛК
-                            persAccountSubmenuCheck();
+                            // //personalaccount();
+                            // //меняем онклик у иконки входа в ЛК
+                            // persAccountSubmenuCheck();
 
                             //document.getElementById('pers_name').value = name;
                             //document.getElementById('pers_mail').value = e-mail;
@@ -2308,10 +2320,10 @@
                             localStorage.setItem('personal_info', JSON.stringify(persInfoArr));
                             //console.log(localStorage.getItem('personal_info'));
 
-                            //очищаем страницу
-                            clearPage();
+                            // //очищаем страницу
+                            // clearPage();
 
-                            renderInfo();
+                            // renderInfo();
 
                         }
                         else if (date["reason"] == "already exist") {
