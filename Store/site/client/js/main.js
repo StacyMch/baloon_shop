@@ -237,6 +237,8 @@
 
     //функция проверки токена
     function tokenChecked() {
+        
+        let hash = localStorage.getItem('token');
 
         let hash = localStorage.getItem('token');
 
