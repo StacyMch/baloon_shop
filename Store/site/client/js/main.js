@@ -237,10 +237,11 @@
 
     //функция проверки токена
     function tokenChecked() {
+        
+        let hash = localStorage.getItem('token');
 
         if (hash != null) {
 
-            let hash = localStorage.getItem('token');
             console.log(hash);
 
             let data = "token=" + encodeURIComponent(hash);
